@@ -10,7 +10,7 @@ namespace PBL4HDHM
     {
         static void Main(string[] args)
         {
-            IPAddress ip = IPAddress.Parse("192.168.43.124");
+            IPAddress ip = IPAddress.Parse("192.168.1.2");
             int port = 9000;
             TcpClient client = new TcpClient();
             try
