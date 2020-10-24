@@ -18,7 +18,7 @@ namespace PBL4HDHM
 
             try
             {
-                IPAddress IP = IPAddress.Parse("192.168.1.2");
+                IPAddress IP = IPAddress.Parse("192.168.1.3");
                 TcpListener ServerSocket = new TcpListener(IP, 9000);
                 ServerSocket.Start();
 
@@ -72,11 +72,28 @@ namespace PBL4HDHM
             {
             }
         }
-
+        public static string TinhLich(string data)
+        {
+            int N = int.Parse(data);
+            int a = (N - 1) / 4, b = (N - 1) / 100, c = (N - 1) / 400;
+            int thutu = 1;
+            int ans = (N - 1 + a - b + c + thutu) % 7;
+            string thu = "";
+            switch (ans)
+            {
+                case 0: thu = "SU"; break;
+                case 1: thu = "MO"; break;
+                case 2: thu = "TU"; break;
+                case 3: thu = "WE"; break;
+                case 4: thu = "TH"; break;
+                case 5: thu = "FR"; break;
+                case 6: thu = "SA"; break;
+            }
+            return thu;
+        }
         public static string Handle(string data)
         {
-
-            return data;
+            return TinhLich(data);
         }
 
         public static void Broadcast(string data, TcpClient sender)
